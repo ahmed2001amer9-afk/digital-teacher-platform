@@ -3,8 +3,9 @@ import { useState, useEffect } from "react";
 
 export default function ClientHome() {
   const [email, setEmail] = useState("");
-  const [lang, setLang] = useState("ar");
+  const [lang, setLang] = useState("ar"); // الافتراضي عربي
 
+  // ضبط اتجاه الصفحة ولغة الـ <html>
   useEffect(() => {
     const root = document.documentElement;
     root.setAttribute("lang", lang);
@@ -173,6 +174,8 @@ export default function ClientHome() {
       <header className="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <h1 className="text-xl font-bold">{t.brand}</h1>
+
+        {/* محوّل اللغات */}
           <div className="flex items-center gap-2">
             <span className="text-sm opacity-80">🌐</span>
             <select
@@ -201,6 +204,7 @@ export default function ClientHome() {
         <section className="mb-10">
           <h2 className="text-2xl font-bold mb-4">{t.courseTitle}</h2>
           <p className="text-white/80 mb-8">{t.courseDesc}</p>
+
           {t.workshops.map((w, idx) => (
             <div key={idx} className="mb-6 p-5 bg-white/5 rounded-2xl border border-white/10">
               <h3 className="text-xl font-semibold mb-3">{w.title}</h3>
