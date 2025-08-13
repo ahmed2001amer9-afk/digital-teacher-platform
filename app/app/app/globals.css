@@ -1,7 +1,32 @@
+/* Tailwind layers */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* تحسينات بسيطة */
-html, body, :root { min-height: 100%; }
-body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+/* ===== Fallbacks (لو تعطل Tailwind لأي سبب) ===== */
+:root {
+  --bg-from: #0f172a; /* قريب من slate-900 */
+  --bg-via:  #1f2937; /* قريب من slate-800 */
+  --bg-to:   #0f172a;
+}
+
+html, body { min-height: 100%; }
+* { box-sizing: border-box; }
+
+body {
+  background: linear-gradient(135deg, var(--bg-from), var(--bg-via), var(--bg-to));
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans",
+               "Helvetica Neue", Arial, "Apple Color Emoji","Segoe UI Emoji";
+}
+
+/* تحسين فرق المسافات في القوائم إذا لم يعمل Tailwind */
+main ul { padding-inline-start: 1.25rem; }
+main li { margin: .25rem 0; }
+
+/* حواف لطيفة للعناصر التفاعلية */
+select, input, button {
+  border-radius: .75rem;
+}
