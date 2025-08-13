@@ -1,19 +1,23 @@
 import "../styles/globals.css";
 
 export const metadata = {
-  title: "Digital Teacher Platform",
-  description: "Mastering AI for Education",
+  title: {
+    default: 'منصة المعلّم الرقمي',
+    template: '%s | منصة المعلّم الرقمي',
+  },
+  description: 'ورش عملية لإتقان أدوات الذكاء الاصطناعي في التعليم — منصة المعلّم الرقمي.',
+  metadataBase: new URL('https://teacher-ai-edu.vercel.app'),
+  openGraph: {
+    title: 'منصة المعلّم الرقمي',
+    description: 'ورش عملية لإتقان أدوات الذكاء الاصطناعي في التعليم.',
+    url: 'https://teacher-ai-edu.vercel.app',
+    siteName: 'منصة المعلّم الرقمي',
+    type: 'website',
+    locale: 'ar_AE',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'منصة المعلّم الرقمي',
+    description: 'ورش عملية لإتقان أدوات الذكاء الاصطناعي في التعليم.',
+  },
 };
-
-export default function RootLayout({ children }) {
-  return (
-    <html lang="ar" dir="rtl">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet" />
-      </head>
-      <body className="antialiased">{children}</body>
-    </html>
-  );
-}
