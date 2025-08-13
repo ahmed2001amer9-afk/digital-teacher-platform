@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 /* تحسينات بسيطة */
-html, body, #__next, :root { min-height: 100%; }
+html, body, :root { min-height: 100%; }
 body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
