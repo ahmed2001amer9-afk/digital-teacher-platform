@@ -172,21 +172,36 @@ export default function Page() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
       <header className="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <h1 className="text-xl font-bold">{t.brand}</h1>
-          {/* محوّل اللغات */}
-          <select
-            aria-label={lang === "ar" ? "اختر اللغة" : "Choose language"}
-            value={lang}
-            onChange={(e) => setLang(e.target.value)}
-            className="rounded-lg bg-white/10 border border-white/10 px-2 py-1 text-sm"
-          >
-            <option value="ar">العربية</option>
-            <option value="en">English</option>
-          </select>
-        </div>
-        <span className="text-sm text-white/70">{t.tagline}</span>
-      </header>
+  <div className="flex items-center gap-3">
+    <h1 className="text-xl font-bold">{t.brand}</h1>
+
+    {/* محوّل اللغات — واضح وكبير */}
+    <div className="flex items-center gap-2">
+      <span className="text-sm opacity-80">🌐</span>
+      <select
+        aria-label={lang === "ar" ? "اختر اللغة" : "Choose language"}
+        value={lang}
+        onChange={(e) => setLang(e.target.value)}
+        className="min-w-[140px] rounded-lg bg-white/10 border border-white/40 px-3 py-1 text-sm"
+      >
+        <option value="ar">العربية</option>
+        <option value="en">English</option>
+      </select>
+
+      {/* زر بديل للتبديل السريع */}
+      <button
+        type="button"
+        onClick={() => setLang((cur) => (cur === "ar" ? "en" : "ar"))}
+        className="rounded-lg border border-white/40 bg-white/10 px-3 py-1 text-xs"
+        title={lang === "ar" ? "Switch to English" : "التبديل للعربية"}
+      >
+        {lang === "ar" ? "EN" : "AR"}
+      </button>
+    </div>
+  </div>
+
+  <span className="text-sm text-white/70">{t.tagline}</span>
+</header>
 
       <main className="max-w-6xl mx-auto px-6">
         <section className="mb-10">
