@@ -1,4 +1,4 @@
-import ClientHome from "./client-home.jsx"; // انتبه للاحقة .jsx
+import ClientHome from "./client-home.jsx";
 
 export default function Page() {
   return <ClientHome />;
