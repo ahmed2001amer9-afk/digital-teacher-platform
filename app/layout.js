@@ -1,5 +1,3 @@
-import "./globals.css";
-
 export const metadata = {
   title: "Digital Teacher Platform",
   description: "Mastering AI for Education",
