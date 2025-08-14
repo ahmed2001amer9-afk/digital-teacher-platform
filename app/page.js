@@ -43,7 +43,10 @@ export default function Page() {
   const t = translations[lang] || translations.ar;
   const blocks = Array.isArray(t?.blocks) ? t.blocks : [];
   const totalWorkshops = blocks.length;
-  const workshopLabel = lang === "ar"
+const workshopLabel =
+  lang === "ar"
+    ? (totalWorkshops === 1 ? "ورشة" : "ورش")
+    : (totalWorkshops === 1 ? "workshop" : "workshops");
     ? "ورشة"
     : totalWorkshops === 1
       ? "workshop"
