@@ -58,9 +58,77 @@ useEffect(() => {
   const t = translations[lang];
   const blocks = t.blocks;
   const totalWorkshops = blocks.length;
+const t = translations[lang];
+// كلمة "ورش" في العربية، و"workshop(s)" في الإنجليزية
+const workshopLabel =
+  lang === "ar" ? "ورش" : (totalWorkshops === 1 ? "workshop" : "workshops");
 
   return (
-    <>
+  <>
+    <Head>
+      <title>{t.meta.title}</title>
+      <meta name="description" content={t.meta.description} />
+    </Head>
+
+    {/* === Language Switcher === */}
+    <div className="w-full mb-4 flex justify-end">
+      <label htmlFor="lang" className="sr-only">اختر اللغة</label>
+      <select
+        id="lang"
+        value={lang}
+        onChange={(e) => setLang(e.target.value)}
+        className="rounded-lg border border-white/20 bg-slate-800/60 px-3 py-2 text-sm text-white"
+        aria-label={lang === "ar" ? "اختر اللغة" : "Choose language"}
+      >
+        <option value="ar">العربية</option>
+        <option value="en">English</option>
+      </select>
+    </div>
+<section className="rounded-2xl border border-white/10 bg-slate-800/60 p-6 sm:p-10 text-center mt-6">
+  <h1 className="text-3xl sm:text-5xl font-extrabold text-white leading-snug">
+    {t.heroTitle}
+  </h1>
+
+  <p className="mt-4 text-slate-200 max-w-3xl mx-auto">
+    {t.heroDesc}
+  </p>
+
+  <div className="mt-6 flex items-center justify-center gap-3">
+    <a href="#workshops" className="px-4 py-2 rounded-lg bg-indigo-500 hover:bg-indigo-600 text-white">
+      {t.browse}
+    </a>
+    <a href="#signup" className="px-4 py-2 rounded-lg border border-white/20 text-white hover:bg-white/10">
+      {t.signup}
+    </a>
+  </div>
+</section>
+{/* === محتوى الدورة === */}
+<section id="workshops" className="mt-10">
+  <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6">
+    {t.courseTitlePrefix} {totalWorkshops} {workshopLabel}
+  </h2>
+
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    {blocks.map((b, i) => (
+      <article
+        key={i}
+        className="rounded-2xl border border-white/10 bg-slate-800/60 p-6 shadow-sm hover:shadow-lg transition"
+      >
+        <h3 className="mb-3 text-xl font-bold text-white">{b.title}</h3>
+        <ul className="list-disc pr-6 space-y-2 text-slate-200">
+          {b.points.map((p, j) => (
+            <li key={j}>{p}</li>
+          ))}
+        </ul>
+      </article>
+    ))}
+  </div>
+</section>
+
+    {/* هنا أكمل محتوى الصفحة العادي (الهيرو، الكروت، ..) */}
+  </>
+);
+
       {/* SEO بحسب اللغة */}
       <Head>
         <title>{t.meta.title}</title>
@@ -74,9 +142,10 @@ useEffect(() => {
       <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
         {/* هيدر */}
         <header className="mx-auto max-w-6xl px-6 py-6 flex items-center justify-between">
-          <h1 className="text-2xl font-extrabold">
+          <h2 className="text-2xl font-extrabold">
+
             {t.brand}
-          </h1>
+          </h2>
 
           {/* مبدّل اللغة */}
           <div className="flex items-center gap-3">
