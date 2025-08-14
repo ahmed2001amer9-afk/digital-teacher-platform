@@ -5,30 +5,40 @@ import Head from "next/head";
 import { translations } from "./lib/i18n";
 
 export default function Page() {
-  // اللغة الافتراضية
+// اللغة الافتراضية
   const [lang, setLang] = useState("ar");
-
-  // تحديد اللغة عند التحميل: أولًا من رابط ?lang، ثم من localStorage، وإلا العربية
-  useEffect(() => {
+  const t = translations[lang] || translations.ar;
     if (typeof window === "undefined") return;
+// اجلب اللغة من الرابط أو التخزين، وطبّق dir/lang
+useEffect(() => {
+  if (typeof window === "undefined") return;
 
-    const url = new URL(window.location.href);
-    const qp = url.searchParams.get("lang");
-    const saved = localStorage.getItem("lang");
+  const url = new URL(window.location.href);
+  const urlLang = url.searchParams.get("lang");
+  const stored = window.localStorage.getItem("lang");
+  const initial = urlLang || stored || "ar";
 
-    if (qp && (qp === "ar" || qp === "en")) {
-      setLang(qp);
-      return;
-    }
-    if (saved && (saved === "ar" || saved === "en")) {
-      setLang(saved);
-      return;
-    }
-    setLang("ar");
-  }, []);
+  if (initial !== lang) setLang(initial);
 
-  // عند تغيير اللغة: احفظها، وطبّق dir/lang على <html>، وحدّث رابط الصفحة بـ ?lang
-  useEffect(() => {
+  const html = document.documentElement;
+  html.setAttribute("lang", initial);
+  html.setAttribute("dir", initial === "ar" ? "rtl" : "ltr");
+}, []);
+
+// إذا تغيّرت اللغة أثناء التشغيل، خزّنها وحدّث dir/lang
+  // إذا تغيّرت اللغة أثناء التشغيل، خزّنها وحدّث dir/lang
+useEffect(() => {
+  if (typeof window === "undefined") return;
+
+  // خزّن اللغة
+  window.localStorage.setItem("lang", lang);
+
+  // حدّث سمات <html>
+  const html = document.documentElement;
+  html.setAttribute("lang", lang);
+  html.setAttribute("dir", lang === "ar" ? "rtl" : "ltr");
+}, [lang]);
+useEffect(() => {
     if (typeof window === "undefined") return;
     const t = translations[lang];
 
