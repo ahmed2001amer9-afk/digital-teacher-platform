@@ -1,5 +1,7 @@
+// app/page.js
+
 export default function Page() {
-  const workshops = [
+  const blocks = [
     {
       title: "الذكاء الاصطناعي من الصفر إلى الإبداع",
       points: [
@@ -7,7 +9,7 @@ export default function Page() {
         "إنشاء صور احترافية بضغطة زر",
         "تحويل النصوص إلى أصوات متنوعة",
         "تأليف قصة وتحويلها لفيديو",
-        "التعامل مع PDF وتحويله لقصة أو مسرحية",
+        "التعامل مع ملف PDF وتحويله لقصة أو مسرحية",
         "تحويل PDF إلى Word دون فقد التنسيق",
       ],
     },
@@ -16,131 +18,84 @@ export default function Page() {
       points: [
         "تصميم فيديو تعليمي من عنوان الدرس",
         "إنشاء اختبارات احترافية مع ورقة مراجعة",
-        "إنشاء اختبار وتتبع النتائج خلال دقيقتين",
-        "الحوار مع فيديو YouTube وتحويله لمسرحية",
+        "إنشاء أنشطة ومشاركة وتتبع النتائج موجودة",
+        "الحصول على سيناريو YouTube وتعليق صوتي احترافي",
         "تحويل PDF إلى PowerPoint احترافي",
       ],
     },
     {
-      title: "الإبداع المتقدّم وإثراء المحتوى التعليمي",
+      title: "الإبداع المتقدم وإثراء المحتوى التعليمي",
       points: [
         "تحويل الدروس لخرائط ذهنية",
-        "تصميم فيديوهات إعلانية أو تعليمية",
-        "إنشاء أسئلة تفاعلية ممتعة",
-        "ترجمة احترافية لملفات كبيرة",
-        "تصميم فيديوهات متعددة الشخصيات الناطقة",
-      ],
-    },
-    {
-      title: "المعلّم الذكي المخصص للمادة",
-      points: [
-        "إنشاء موقع شبيه بـ ChatGPT مخصص للمادة",
-        "إتاحة أسئلة الطلاب على مدار الساعة",
-        "تدريب المعلم ليضمن إجابات دقيقة",
-        "حصر الإجابات ضمن نطاق المادة",
-      ],
-    },
-    {
-      title: "نماذج تعليمية تفاعلية تحاكي الواقع",
-      points: [
-        "التعريف بأحدث أداة لتصميم النماذج",
-        "إنشاء بيئات محاكاة واقعية",
-        "عناصر تفاعلية وتجربة عملية",
-      ],
-    },
-    {
-      title: "تجميع مصادر المعرفة وتحويلها لتجارب متعددة",
-      points: [
-        "جمع كل المصادر في مكان واحد",
-        "تحويل المحتوى إلى فيديو أو بودكاست",
-        "ملخّص شامل + أسئلة وملاحظات",
-        "تحويل المحتوى لخريطة ذهنية احترافية",
+        "إنشاء فيديوهات إعلانية للدروس",
+        "إنشاء نماذج تقييم سريعة",
+        "تحسين تصميم المشاريع الطلابية",
+        "إنشاء ملخصات نصية سريعة",
       ],
     },
   ];
 
   return (
-    <div>
-      {/* ========== Header ========== */}
-      <header className="backdrop-blur supports-[backdrop-filter]:bg-white/5 bg-white/0 border-b border-white/10">
-        <div className="container flex items-center justify-between py-4">
-          <div className="flex items-center gap-3">
-            <span className="inline-flex h-9 w-9 items-center justify-center rounded-2xl bg-white/10">
-              <span className="text-lg font-black">DT</span>
-            </span>
-            <div>
-              <h1 className="text-base font-bold leading-none">منصة المعلم الرقمي</h1>
-              <p className="text-xs text-white/60">إتقان الذكاء الاصطناعي في التعليم</p>
-            </div>
-          </div>
-          <nav className="hidden sm:flex items-center gap-4 text-sm text-white/80">
-            <a href="#workshops" className="hover:text-white transition">الورش</a>
-            <a href="#contact" className="hover:text-white transition">تواصل</a>
-          </nav>
-        </div>
-      </header>
-
-      {/* ========== Hero ========== */}
-      <section className="container py-16 sm:py-20">
-        <div className="max-w-3xl text-center mx-auto">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-[1.25]">
-            منصة المعلم الرقمي
-          </h2>
-          <p className="mt-4 text-white/80 text-lg">
-            مرحبًا! تم إعداد الصفحة بنجاح. هذه نسخة أوّلية محسّنة بالمظهر، مع لمسات بسيطة
-            وأقسام منظّمة لعرض ورش الدورة.
-          </p>
-
-          <div className="mt-8 flex items-center justify-center gap-3">
-            <a
-              href="#workshops"
-              className="btn btn-primary"
-            >
-              استعراض الورش
-            </a>
-            <a
-              href="mailto:info@example.com?subject=الاشتراك%20في%20منصة%20المعلم%20الرقمي"
-              className="btn btn-ghost"
-            >
-              تسجيل اهتمام
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* ========== Workshops ========== */}
-      <section id="workshops" className="container pb-16 sm:pb-20">
-        <h3 className="text-2xl sm:text-3xl font-bold mb-6">محتوى الدورة — 6 ورش عملية</h3>
-
-        <div className="grid md:grid-cols-2 gap-6">
-          {workshops.map((w, idx) => (
-            <div
-              key={idx}
-              className="card"
-            >
-              <h4 className="text-lg font-semibold mb-3">{w.title}</h4>
-              <ul className="list-disc mr-5 space-y-1 text-white/80">
-                {w.points.map((p, i) => (
-                  <li key={i}>{p}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ========== Footer ========== */}
-      <footer id="contact" className="border-t border-white/10">
-        <div className="container py-6 text-sm text-white/60 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <span>© {new Date().getFullYear()} منصة المعلم الرقمي</span>
+    <main className="space-y-14">
+      {/* قسم البطل (Hero) */}
+      <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-slate-800 to-slate-900 p-8 sm:p-12 shadow-2xl">
+        <div className="pointer-events-none absolute inset-0 -z-10 opacity-20 bg-[radial-gradient(1100px_400px_at_100%_0%,rgba(56,189,248,.35),transparent_60%)]" />
+        <h2 className="text-3xl sm:text-4xl font-bold leading-relaxed">
+          الدورة: احتراف الذكاء الاصطناعي في التعليم
+        </h2>
+        <p className="mt-4 max-w-2xl text-slate-300">
+          نسخة محسّنة بالمظهر، مع أقسام منظّمة لعرض الورش. انطلق لتنظيم أفكارك
+          وتخفيف الفوضى باستخدام بطاقات واضحة وأزرار عملية.
+        </p>
+        <div className="mt-6 flex flex-wrap gap-3">
           <a
-            href="mailto:info@example.com"
-            className="hover:text-white"
+            href="#workshops"
+            className="inline-flex items-center justify-center rounded-xl bg-sky-400 px-5 py-2.5 font-semibold text-slate-900 hover:bg-sky-300 transition focus:outline-none focus:ring-2 focus:ring-sky-300/70"
           >
-            تواصل: info@example.com
+            استعراض الورش
+          </a>
+          <a
+            href="#signup"
+            className="inline-flex items-center justify-center rounded-xl border border-white/20 bg-white/5 px-5 py-2.5 font-semibold text-white hover:bg-white/10 transition focus:outline-none focus:ring-2 focus:ring-white/30"
+          >
+            التسجيل للاهتمام
           </a>
         </div>
-      </footer>
-    </div>
+      </section>
+
+      {/* شبكة الورش */}
+      <section id="workshops" className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        {blocks.map((b, i) => (
+          <article
+            key={i}
+            className="rounded-2xl border border-white/10 bg-slate-800/60 p-6 shadow-sm hover:shadow-lg transition"
+          >
+            <h3 className="mb-3 text-xl font-bold text-white">{b.title}</h3>
+            <ul className="list-disc pr-6 space-y-2 text-slate-200">
+              {b.points.map((p, j) => (
+                <li key={j}>{p}</li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </section>
+
+      {/* قسم التسجيل بالاهتمام */}
+      <section
+        id="signup"
+        className="rounded-2xl border border-white/10 bg-slate-800/60 p-6 sm:p-8 text-center"
+      >
+        <h3 className="text-2xl font-bold text-white">مهتم بالانضمام؟</h3>
+        <p className="mt-2 text-slate-300">
+          سجّل اهتمامك وسنرسل لك التفاصيل والمواعيد فور فتح التسجيل الرسمي.
+        </p>
+        <a
+          href="#"
+          className="mt-5 inline-flex items-center justify-center rounded-xl bg-sky-400 px-5 py-2.5 font-semibold text-slate-900 hover:bg-sky-300 transition focus:outline-none focus:ring-2 focus:ring-sky-300/70"
+        >
+          إرسال نموذج الاهتمام
+        </a>
+      </section>
+    </main>
   );
 }
