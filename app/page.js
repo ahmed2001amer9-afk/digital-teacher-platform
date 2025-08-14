@@ -96,8 +96,9 @@ export default function Page() {
         className="mx-auto max-w-screen-xl px-4 pb-12 sm:pb-16"
       >
         <h2 className="mb-6 text-2xl sm:text-3xl font-bold text-white">
-          محتوى الدورة — {blocks.length} ورشة
-        </h2>
+  محتوى الدورة — {blocks.length} {blocks.length === 1 ? 'ورشة' : 'ورش'}
+</h2>
+
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
           {blocks.map((b, i) => (
