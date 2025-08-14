@@ -1,0 +1,10 @@
+html { direction: rtl; }
+body {
+  margin: 0;
+  background: #0f172a; /* slate-900 */
+  color: #e2e8f0;      /* slate-200 */
+  font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+}
+main { max-width: 960px; margin: 0 auto; padding: 24px; }
+h1 { font-size: 28px; margin: 16px 0; }
+p  { font-size: 16px; line-height: 1.7; }
