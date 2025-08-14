@@ -2,8 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
-:root { color-scheme: dark; }
-html, body { height: 100%; }
-body { 
-  font-family: "Cairo", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+/* ===== لمسات عامة ===== */
+* { scroll-behavior: smooth; }
+html { direction: rtl; }
+body {
+  @apply bg-slate-950 text-slate-100 antialiased;
 }
+
+/* حاوية قياسية */
+.container {
+  @apply max-w-6xl mx-auto px-4;
+}
+
+/* بطاقات جميلة */
+.card {
+  @apply bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6;
+}
+
+/* عنوان رئيسي/فرعي */
+.h1 { @apply text-3xl sm:text-4xl font-extrabold mb-4; }
+.h2 { @apply text-2xl sm:text-3xl font-bold mt-10 mb-4; }
+
+/* زر جاهز للاستخدام */
+.btn {
+  @apply inline-flex items-center justify-center rounded-lg px-4 py-2 font-semibold
+         text-white bg-gradient-to-r from-indigo-600 via-fuchsia-600 to-emerald-500
+         hover:opacity-90 transition;
+}
+
+/* قوائم مرتبة */
+.list {
+  @apply list-disc pr-6 space-y-1 marker:text-sky-400;
+}
+
+/* روابط */
+a { @apply text-sky-400 hover:text-sky-300 underline underline-offset-4; }
