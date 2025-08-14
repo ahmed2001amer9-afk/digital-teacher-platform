@@ -100,7 +100,9 @@ const workshopLabel =
         {/* محتوى الدورة */}
         <section id="workshops" className="mt-10">
           <h3 className="text-2xl sm:text-3xl font-bold mb-6">
-            {t.courseTitlePrefix} {totalWorkshops} {workshopLabel}
+<h3 className="text-2xl sm:text-3xl font-bold text-white mb-6">
+  {t.courseTitlePrefix} {totalWorkshops} {lang === "ar" ? (totalWorkshops === 1 ? "ورشة" : "ورش") : (totalWorkshops === 1 ? "workshop" : "workshops")}
+</h3>
           </h3>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
